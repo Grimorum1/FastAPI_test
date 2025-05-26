@@ -49,7 +49,7 @@ async def get_message(message_id: int):
         await asyncio.wait_for(events[message_id].wait(), timeout=60)
     except asyncio.TimeoutError:
         del events[message_id]
-        raise HTTPException(status_code=404, detail="Сообщение не найдено ")
+        raise HTTPException(status_code=404, detail="Сообщение не найдено")
 
     # Проверяем, появилось ли сообщение после пробуждения
     if message_id in messages:
